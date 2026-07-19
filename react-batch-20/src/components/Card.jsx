@@ -1,5 +1,6 @@
 import { use, useEffect, useState } from "react"
 import { handleClickConsole } from "../helpers/click"
+import { useNavigate } from "react-router"
 
 const exampleArray = [
   {
@@ -18,48 +19,21 @@ const exampleArray = [
 
 function Card () {
 
-  const [state, setState] = useState(1)
-  const [show, setShow] = useState("show")
+  let navigation = useNavigate()
 
-  function handleClick () {
-    setState(state + 1)
+  function handleNavigationToEdit () {
+    navigation("/edit")
   }
-
-  function handleClick2 () {
-    setState(state - 1)
-  }
-
-  function handleShow () {
-    setShow("none")
-  }
-
-  useEffect(() => {
-    console.log("LOGGING")
-  }, [state])
 
   return (
     <div className="card">
-      <p>Count : {state}</p>
-      <p>
-        {
-          state > 9 ? "success" : "error"
-        }
-      </p>
-      
-      <button onClick={handleClick}>Click +1</button>
-      <button onClick={handleClick2}>Click -1</button>
-
-      <button style={{
-        display: show
-      }} onClick={handleShow}>Click to Remove</button>
-
-      
-
-      {
-        exampleArray.map((item, index) => (
-          <p key={index}>{item.name}</p>
-        ))
-      }
+      <p>Title</p>
+      <p>Description</p>
+      <p>Priority</p>
+      <div className="card-footer">
+        <button onClick={handleNavigationToEdit}>Edit</button>
+        <button>Delete</button>
+      </div>
     </div>
   )
 }

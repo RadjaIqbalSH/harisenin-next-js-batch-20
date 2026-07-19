@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router";
+
 function Navbar () {
 
+  let navigate = useNavigate();
+
   function handleClick () {
-    console.log("Add Task Button Cliked")
+    navigate("/create");
   }
 
   return (
