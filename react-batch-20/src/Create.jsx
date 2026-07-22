@@ -1,23 +1,16 @@
-import React, { use, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { use, useCallback, useEffect, useMemo, useRef, useState, useContext } from 'react'
 import Navbar from './components/Navbar'
 import { NavLink } from "react-router";
+
+import { ThemeContext } from './App';
+import { useStoreTheme } from "../src/store/theme"
 
 function Create() {
 
   const [state, setState] = useState()
-  const data = useRef(3000)
+  const data = useRef(3000);
 
-  // useEffect(() => {
-  //   data.current = setInterval(() => {
-  //     setTimeout(() => {
-  //       console.log("test")
-  //     }, 1000)
-  //   }, 1000)
-
-  //   return () => {
-  //     clearInterval(data.current)
-  //   }
-  // })
+  const storeTheme = useStoreTheme()
 
   const example = useCallback(() => {
     console.log()
@@ -32,10 +25,17 @@ function Create() {
 
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
       <div className='container'>
         <NavLink to="/">Back To Home Page</NavLink>
-        <h1>Craete Task</h1>
+        <h1>Craete Task {storeTheme.theme}</h1>
+        <button onClick={() => {
+          if (storeTheme.theme === "light") {
+            storeTheme.setTheme("dark")
+          } else {
+            storeTheme.setTheme("light")
+          }
+        }} >click</button>
       </div>
     </div>
   )

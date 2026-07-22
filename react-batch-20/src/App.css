@@ -11,7 +11,22 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+}
+
+.navbar-side {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.navbar--light {
   background-color: antiquewhite;
+  color: black;
+}
+.navbar--dark {
+  background-color: black;
+  color: white;
 }
 
 .navbar-title {
@@ -20,23 +35,43 @@ body {
 }
 
 .navbar-button {
-  background-color: azure;
   border: none;
-  font-size: 24px;
+  font-size: 14px;
   padding: 12px;
   border-radius: 8px;
 }
 
+.navbar-button--light {
+  background-color: azure;
+  color: black;
+}
+.navbar-button--dark {
+  background-color: darkslategray;
+  color: white;
+}
+
 .card {
-  border: 1px solid salmon;
+  border: 1px solid;
   width: 150px;
   border-radius: 16px;
   padding: 20px;
 }
 
+.card--light {
+  border-color: salmon;
+  color: black;
+  background-color: antiquewhite;
+} 
+.card--dark {
+  border-color: darkolivegreen;
+  color: white;
+  background-color: darkolivegreen;
+} 
+
 .container {
   width: 100%;
   height: auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -44,6 +79,13 @@ body {
   gap: 24px;
   padding: 20px;
   box-sizing: border-box;
+}
+
+.container--light {
+  background-color: white;
+}
+.container--dark {
+  background-color: dimgray;
 }
 
 .show {

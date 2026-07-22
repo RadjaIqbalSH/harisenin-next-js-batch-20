@@ -1,6 +1,9 @@
-import { use, useEffect, useState } from "react"
+import { use, useEffect, useState, useContext } from "react"
 import { handleClickConsole } from "../helpers/click"
 import { useNavigate } from "react-router"
+import Button from "./Button"
+
+import { ThemeContext } from "../App"
 
 const exampleArray = [
   {
@@ -19,6 +22,8 @@ const exampleArray = [
 
 function Card () {
 
+  const state = useContext(ThemeContext);
+
   let navigation = useNavigate()
 
   function handleNavigationToEdit () {
@@ -26,13 +31,20 @@ function Card () {
   }
 
   return (
-    <div className="card">
+    <div className={`card card--${state.theme}`}>
       <p>Title</p>
       <p>Description</p>
       <p>Priority</p>
       <div className="card-footer">
-        <button onClick={handleNavigationToEdit}>Edit</button>
-        <button>Delete</button>
+        <Button
+          onClick={handleNavigationToEdit}
+        >
+          Edit
+        </Button>
+        <Button
+        >
+          Delete
+        </Button>
       </div>
     </div>
   )
