@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         Component: Create
       },
       {
-        path: "edit",
+        path: "edit/:id",
         Component: Edit
       },
     ]

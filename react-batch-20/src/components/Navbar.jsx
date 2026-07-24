@@ -9,7 +9,11 @@ function Navbar (props) {
 
   let navigate = useNavigate();
 
-  const state = useContext(ThemeContext);
+  // const state = useContext(ThemeContext);
+  const state = {
+    theme: "dark",
+    setTheme: () => {},
+  }
 
   function handleClick () {
     navigate("/create");

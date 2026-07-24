@@ -5,7 +5,10 @@ function Button(props) {
 
   const { onClick, children } = props
 
-  const state = useContext(ThemeContext);
+  const state = {
+    theme: "dark"
+  }
+  // const state = useContext(ThemeContext);
 
   return (
     <button 
