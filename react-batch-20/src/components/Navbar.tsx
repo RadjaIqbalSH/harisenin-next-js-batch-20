@@ -1,0 +1,34 @@
+import { useNavigate } from "react-router";
+import Button from "./Button";
+
+function Navbar() {
+	let navigate = useNavigate();
+
+	// const state = useContext(ThemeContext);
+	const state = {
+		theme: "dark",
+		setTheme: () => {},
+	};
+
+	function handleClick() {
+		navigate("/create");
+	}
+
+	function handleChangeThemeMode() {
+		// state.setTheme(state.theme === "dark" ? "light" : "dark");
+	}
+
+	return (
+		<div className={`navbar navbar--${state.theme}`}>
+			<p className="navbar-title">Logo</p>
+			<div className="navbar-side">
+				<Button onClick={handleChangeThemeMode}>
+					Change to {state.theme === "dark" ? "light" : "dark"} mode
+				</Button>
+				<Button onClick={handleClick}>Add Task</Button>
+			</div>
+		</div>
+	);
+}
+
+export default Navbar;
