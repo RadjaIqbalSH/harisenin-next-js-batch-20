@@ -6,7 +6,7 @@ import {
 	type SubmitEventHandler,
 } from "react";
 import Navbar from "./components/Navbar";
-import { NavLink, Link, useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
 // import { ThemeContext } from "./App";
 // import { useStoreTheme } from "./store/theme";
